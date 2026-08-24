@@ -12,7 +12,7 @@ rel="stylesheet">
 <body>
     <h1>封印者機體計算器</h1>    
     <div class="container">
-        <label class="Character_SL">選擇角色:</label>
+        <!-- <label class="Character_SL">選擇角色:</label>
         <select class="form-select" id="Character_Select" onchange="Change_Character()">
             <option value="" selected disabled>請選擇角色</option>
             <option value="PSP" data-type="physical">李世河</option>
@@ -37,63 +37,138 @@ rel="stylesheet">
             <option value="GINGA" data-type="magic">銀河</option>
             <option value="LC"    data-type="hybrid">露西</option>
             <option value="AERI"  data-type="magic">愛里</option>
-        </select>
-       <div>
+        </select> -->
+       <div> 
         <img src="image/阿達希爾.gif" width="200" height="200" id="Character_Image" alt="角色圖片">
         </div> 
         <div class="card">
             <h3>攻擊區</h3>
-        
             <label class="form-label" data-type="input-physical">物理攻擊力:</label>
-            <input class="form-control" data-type="input-physical" type="number" id="Phys_Atk" placeholder="輸入物理攻擊力">
-            <label class="form-label" data-type="input-physical">物理攻擊力(-1000):</label>
-            <input class="form-control" data-type="input-physical" type="number" id="Phys_Atk2" placeholder="輸入物理攻擊力(-1000)">
+            <input class="form-control" data-type="input-physical" type="number" id="Phys_Atk" placeholder="輸入物理攻擊力" oninput="Calculate()">
+            <label class="form-label" data-type="input-physical">物理攻擊力(少團隊增益四小隊):</label>
+            <input class="form-control" data-type="input-physical" type="number" id="Phys_Atk2" placeholder="輸入物理攻擊力(-1000)" oninput="Calculate()">
             <label class="form-label" data-type="input-magic">魔法攻擊力:</label>
-            <input class="form-control" data-type="input-magic" type="number" id="Magic_Atk" placeholder="輸入魔法攻擊力">
-            <label class="form-label" data-type="input-magic">魔法攻擊力(-1000):</label>
-            <input class="form-control" data-type="input-magic" type="number" id="Magic_Atk2" placeholder="輸入魔法攻擊力(-1000)">
+            <input class="form-control" data-type="input-magic" type="number" id="Magic_Atk" placeholder="輸入魔法攻擊力" oninput="Calculate()">
+            <label class="form-label" data-type="input-magic">魔法攻擊力(少團隊增益四小隊):</label>
+            <input class="form-control" data-type="input-magic" type="number" id="Magic_Atk2" placeholder="輸入魔法攻擊力(-1000)" oninput="Calculate()">
             <label class="form-label">武器白字攻擊:</label>
-            <input class="form-control" type="number" id="Weapon_Base_Atk" placeholder="輸入武器白字攻擊">
+            <input class="form-control" type="number" id="Weapon_Base_Atk" placeholder="輸入武器白字攻擊" oninput="Calculate()">
         </div> 
         <div class="card">
             <h3>暴傷區</h3>
             <label class="form-label" data-type="input-physical">物理暴傷:</label>
-            <input class="form-control" data-type="input-physical" type="number" id="Phys_Crit" placeholder="輸入物理暴傷">
+            <input class="form-control" data-type="input-physical" type="number" id="Phys_Crit" placeholder="輸入物理暴傷" oninput="Calculate()">
             <label class="form-label" data-type="input-magic">魔法暴傷:</label>
-            <input class="form-control" data-type="input-magic" type="number" id="Magic_Crit" placeholder="輸入魔法暴傷">
+            <input class="form-control" data-type="input-magic" type="number" id="Magic_Crit" placeholder="輸入魔法暴傷" oninput="Calculate()">
             <label class="form-label">背暴傷:</label>
-            <input class="form-control" type="number" id="Back_Crit" placeholder="輸入背暴傷">
+            <input class="form-control" type="number" id="Back_Crit" placeholder="輸入背暴傷" oninput="Calculate()">
             <label class="form-label">空暴傷:</label>
-            <input class="form-control" type="number" id="Aerial_Crit" placeholder="輸入空暴傷">
+            <input class="form-control" type="number" id="Aerial_Crit" placeholder="輸入空暴傷" oninput="Calculate()">
             <label class="form-label">浮暴傷:</label>    
-            <input class="form-control" type="number" id="Chase_Crit" placeholder="輸入浮暴傷">
+            <input class="form-control" type="number" id="Chase_Crit" placeholder="輸入浮暴傷" oninput="Calculate()">
             <label class="form-label">暴傷抵抗:</label>
-            <input class="form-control" type="number" id="Crit_Resist" placeholder="輸入暴傷抵抗">
+            <input class="form-control" type="number" id="Crit_Resist" placeholder="輸入暴傷抵抗" oninput="Calculate()">
         </div>
         <div class="card">
             <h3>增傷區</h3>
             <label class="form-label">超暴增傷:</label>
-            <input class="form-control" type="number" id="Wake_Dmg" placeholder="輸入超暴增傷">
+            <input class="form-control" type="number" id="Wake_Dmg" placeholder="輸入超暴增傷" oninput="Calculate()">
             <label class="form-label">背增傷:</label>
-            <input class="form-control" type="number" id="Back_Dmg" placeholder="輸入背增傷">
+            <input class="form-control" type="number" id="Back_Dmg" placeholder="輸入背增傷" oninput="Calculate()">
             <label class="form-label">空增傷:</label>
-            <input class="form-control" type="number" id="Aerial_Dmg" placeholder="輸入空增傷">
+            <input class="form-control" type="number" id="Aerial_Dmg" placeholder="輸入空增傷" oninput="Calculate()">
             <label class="form-label">浮增傷:</label>
-            <input class="form-control" type="number" id="Chase_Dmg" placeholder="輸入浮增傷">
+            <input class="form-control" type="number" id="Chase_Dmg" placeholder="輸入浮增傷" oninput="Calculate()">
             <label class="form-label">種族增傷:</label>
-            <input class="form-control" type="number" id="Race_Dmg" placeholder="輸入種族增傷">
+            <input class="form-control" type="number" id="Race_Dmg" placeholder="輸入種族增傷" oninput="Calculate()">
         </div>
-        <div class="from-check">
+        <!-- <div class="from-check">
         <label>
             <input type="checkbox" id="Default_dungeon_checkbox">是否套用預設進本BUFF
         </label>
-        </div>
-        <div class="button-group">
-        <button class="btn btn-primary" id="Calculate_Button" onclick="Clear_Input()">清除</button>
-        <button class="btn btn-success" onclick="Start()">開始</button>
+        </div> -->
+        <!-- <button class="btn btn-success" onclick="Start()">開始</button> -->
         </div>
     </div>
-    <div class="card">
+    
+<!-- 
+    
+<div class="modal fade" id="BuffModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">選擇進本 Buff</h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+            </div> -->
+            <h1>進階選擇</h1>
+            <div class="container">
+                
+                    
+                    <div>
+                        <label class="Character_SL">選擇武器:</label>
+                        <select class="form-select" id="choose_weapon" onchange="Change_weapon()">
+                            <option value="non_value_weapon" >無入場數值特效武器</option>
+                            <option value="O_Hecaton_A" data-type="Orange_weapon" data-kind="whip">橘魔龍鞭:憤怒之龍的王妃阿特波羅斯利鞭/不套用紅效果</option>
+                            <option value="R_Hecaton_A" data-type="Red_weapon" data-kind="whip">紅魔龍鞭:憤怒之龍的王妃阿特波羅斯利鞭/套用紅效果</option>
+                            <option value="O_Hecaton_B" data-type="Orange_weapon">魔龍燈籠:憤怒古龍的王妃阿特波羅斯燈籠</option>
+                            <option value="O_Hecaton_C" data-type="Orange_weapon">橘龍環刃:憤怒之龍的王妃阿特波羅斯環刃</option>
+                            <option value="R_Hecaton_C" data-type="Red_weapon">紅龍環刃:憤怒之龍的王妃阿特波羅斯利鞭</option>
+                            <option value="O_CountD" data-type="Orange_weapon">D神剪刀:杜格瑪、瑪格娜的阿特波羅斯剪刀</option>
+                        </select>
+                    </div>
+
+                    <div class="form-check">
+                        <label class="Character_SL">選擇武器強化:</label>
+                        <select class="form-select" id="choose_weapon_upgrade" onchange="Change_weapon()">
+                            <option value="non_up_weapon"   data-upgrade="low">+18以下武器</option>
+                            <option value="+18_weapon" data-upgrade="18">+18武器:橘特效增強</option>
+                            <option value="+22_weapon" data-upgrade="22">+22武器:紅特效增強</option>
+                        </select>
+                        
+                    </div>
+                        <div class="form-check"    id="whip_layer_box" style="display:none;">
+                    <label class="Character_SL">
+                        龍鞭層數:
+                    </label>
+                    <select class="form-select" id="whip_layer">
+                            <option value="0">0層</option>
+                            <option value="1">1層</option>
+                            <option value="2">2層</option>
+                            <option value="3">3層</option>
+                            <option value="4">4層</option>
+                        </select>
+                    </div>
+                    <div class="green-check">
+                        <label>
+                            <input type="checkbox" id="PNA_Buff">
+                            <span></span>
+                            PNA
+                        </label>
+                    </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-primary" id="Calculate_Button" onclick="Clear_Input()">清除</button>
+        
+                </div>
+             
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    取消
+                </button>
+
+                <button type="button" class="btn btn-success" onclick="Confirm_Buff()"> 
+                    確定
+                </button>
+            </div> -->
+
+            </div>
+    </div>
+</div>
+<div class="card">
         <h2>計算結果</h2>
         <label id="Percent_Phys_Atk" data-type="input-physical">總物理攻擊力:</label>
         <label id="Base_Phys_Atk" data-type="input-physical">物理基礎攻擊力: </label>
@@ -115,103 +190,9 @@ rel="stylesheet">
             <h1></h1>
             <label id="total_Dmg_Ratio">10%增傷提升:</label>
         </div>
+        <label id="Phy_Stats_1Eskill"> 1E物理能力值等效技能倍率</label>
+        <label id="Magic_Stats_1Eskill"> 1E魔法能力值等效技能倍率</label>
     </div>
-
-    <!-- Buff 選擇彈窗 -->
-<div class="modal fade" id="BuffModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h5 class="modal-title">選擇進本 Buff</h5>
-                <button type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal">
-                </button>
-            </div>
-
-            <div class="modal-body">
-
-                <div class="form-check">
-                    <label class="Character_SL">選擇武器:</label>
-                    <select class="form-select" id="choose_weapon" onchange="Change_weapon()">
-                        <option value="non_value_weapon" >無入場數值特效武器</option>
-                          <option value="O_Hecaton_A" data-type="Orange_weapon" data-kind="whip">橘魔龍鞭:憤怒之龍的王妃阿特波羅斯利鞭/不套用紅效果</option>
-                          <option value="R_Hecaton_A" data-type="Red_weapon" data-kind="whip">紅魔龍鞭:憤怒之龍的王妃阿特波羅斯利鞭/套用紅效果</option>
-                          <option value="O_Hecaton_B" data-type="Orange_weapon">魔龍燈籠:憤怒古龍的王妃阿特波羅斯燈籠</option>
-                          <option value="O_Hecaton_C" data-type="Orange_weapon">橘龍環刃:憤怒之龍的王妃阿特波羅斯環刃</option>
-                          <option value="R_Hecaton_C" data-type="Red_weapon">紅龍環刃:憤怒之龍的王妃阿特波羅斯利鞭</option>
-                          <option value="O_CountD" data-type="Orange_weapon">D神剪刀:杜格瑪、瑪格娜的阿特波羅斯剪刀</option>
-                    </select>
-                </div>
-
-                <div class="form-check">
-                    <label class="Character_SL">選擇武器強化:</label>
-                    <select class="form-select" id="choose_weapon_upgrade" onchange="Change_weapon()">
-                        <option value="non_up_weapon"   data-upgrade="low">+18以下武器</option>
-                        <option value="+18_weapon" data-upgrade="18">+18武器:橘特效增強</option>
-                        <option value="+22_weapon" data-upgrade="22">+22武器:紅特效增強</option>
-                    </select>
-                    
-                </div>
-                    <div class="form-check"    id="whip_layer_box" style="display:none;">
-                <label class="Character_SL">
-                    龍鞭層數:
-                </label>
-                <select class="form-select" id="whip_layer">
-                        <option value="0">0層</option>
-                        <option value="1">1層</option>
-                        <option value="2">2層</option>
-                        <option value="3">3層</option>
-                        <option value="4">4層</option>
-                    </select>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input"
-                           type="checkbox"
-                           id="PNA_Buff">
-                    <label class="form-check-label">
-                        PNA
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input"
-                           type="checkbox"
-                           id="Abnormal_PNA_Buff">
-                    <label class="form-check-label">
-                        異形 PNA
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input"
-                           type="checkbox"
-                           id="Character_BF">
-                    <label class="form-check-label">
-                        角色專屬 BF
-                    </label>
-                </div>
-
-            </div>
-
-            <div class="modal-footer">
-                <button type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal">
-                    取消
-                </button>
-
-                <button type="button"
-                        class="btn btn-success"
-                        onclick="Confirm_Buff()">
-                    確定
-                </button>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

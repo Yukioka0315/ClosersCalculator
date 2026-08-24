@@ -51,3 +51,29 @@ select{
 .button-group {
     margin-top: 20px;
 }
+
+.green-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.green-check input {
+    display: none;
+}
+
+.green-check span {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    display: inline-block;
+    transition: 0.2s;
+}
+
+/* 勾選後 */
+.green-check input:checked + span {
+    background-color: #28a745;
+    border-color: #28a745;
+}

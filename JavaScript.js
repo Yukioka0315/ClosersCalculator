@@ -3,117 +3,117 @@ window.addEventListener("DOMContentLoaded", function() {
     Default_Value();
 
 });
-function Change_Character(){
+// function Change_Character(){
 
-    let Select =
-        document.getElementById("Character_Select");
+//     let Select =
+//         document.getElementById("Character_Select");
 
-    let Type =
-        Select.options[Select.selectedIndex].dataset.type;
-
-
-    let Physical =
-        document.querySelectorAll('[data-type="input-physical"]');
-
-    let Magic =
-        document.querySelectorAll('[data-type="input-magic"]');
+//     let Type =
+//         Select.options[Select.selectedIndex].dataset.type;
 
 
-    if(Type === "XWL"){
-        Physical.forEach(function(element){
-            element.style.display = "";
-        });
-        Magic.forEach(function(element){
-            element.style.display = "";
-        });
-    }
+//     let Physical =
+//         document.querySelectorAll('[data-type="input-physical"]');
 
-    if(Type === "AERI"){
-        Physical.forEach(function(element){
-            element.style.display = "none";
-        });
-        Magic.forEach(function(element){
-            element.style.display = "";
-        });
-    }
-
-    if(Type === "physical"){
-
-        Physical.forEach(function(element){
-
-            element.style.display = "";
-
-        });
-
-        Magic.forEach(function(element){
-
-            element.style.display = "none";
-
-        });
-
-    }
+//     let Magic =
+//         document.querySelectorAll('[data-type="input-magic"]');
 
 
-    else if(Type === "magic"){
+//     if(Type === "XWL"){
+//         Physical.forEach(function(element){
+//             element.style.display = "";
+//         });
+//         Magic.forEach(function(element){
+//             element.style.display = "";
+//         });
+//     }
 
-        Physical.forEach(function(element){
+//     if(Type === "AERI"){
+//         Physical.forEach(function(element){
+//             element.style.display = "none";
+//         });
+//         Magic.forEach(function(element){
+//             element.style.display = "";
+//         });
+//     }
 
-            element.style.display = "none";
+//     if(Type === "physical"){
 
-        });
+//         Physical.forEach(function(element){
 
-        Magic.forEach(function(element){
+//             element.style.display = "";
 
-            element.style.display = "";
+//         });
 
-        });
+//         Magic.forEach(function(element){
 
-    }
+//             element.style.display = "none";
+
+//         });
+
+//     }
 
 
-    else if(Type === "hybrid"){
+//     else if(Type === "magic"){
 
-        Physical.forEach(function(element){
+//         Physical.forEach(function(element){
 
-            element.style.display = "";
+//             element.style.display = "none";
 
-        });
+//         });
 
-        Magic.forEach(function(element){
+//         Magic.forEach(function(element){
 
-            element.style.display = "";
+//             element.style.display = "";
 
-        });
+//         });
 
-    }
+//     }
 
-}
-function Start(){
 
-    let Default_Buff =
-        document.getElementById("Default_dungeon_checkbox").checked;
+//     else if(Type === "hybrid"){
 
-    if(Default_Buff){
+//         Physical.forEach(function(element){
 
-        // 有勾選預設 Buff
-        // 直接計算
-        Calculate();
+//             element.style.display = "";
 
-    }
-    else{
+//         });
 
-        // 沒有勾選
-        // 打開 Buff 選擇視窗
-        let modal =
-            new bootstrap.Modal(
-                document.getElementById("BuffModal")
-            );
+//         Magic.forEach(function(element){
 
-        modal.show();
+//             element.style.display = "";
 
-    }
+//         });
 
-}
+//     }
+
+// }
+// function Start(){
+
+    // let Default_Buff =
+    //     document.getElementById("Default_dungeon_checkbox").checked;
+
+    // if(Default_Buff){
+
+    //     // 有勾選預設 Buff
+    //     // 直接計算
+    //     Calculate();
+
+    // }
+    // else{
+
+    //     // 沒有勾選
+    //     // 打開 Buff 選擇視窗
+    //     let modal =
+    //         new bootstrap.Modal(
+    //             document.getElementById("BuffModal")
+    //         );
+
+    //     modal.show();
+
+    // }
+
+// }
 function Calculate(){
     let Phys_Atk = Number(document.getElementById("Phys_Atk").value);
     let Phys_Atk2 = Number(document.getElementById("Phys_Atk2").value);
@@ -132,13 +132,13 @@ function Calculate(){
     let Race_Dmg = Number(document.getElementById("Race_Dmg").value);
     let Crit_Resist = Number(document.getElementById("Crit_Resist").value);
     let Select = document.getElementById("Character_Select");
-    let Character = Select.options[Select.selectedIndex].value;
-        if(Character==="AERI"){
-            Back_Crit *=1.15;
-        }
-        else if(Character==="XWL"){
-            Aerial_Crit *=1.15;
-        }
+    // let Character = Select.options[Select.selectedIndex].value;
+    //     if(Character==="AERI"){
+    //         Back_Crit *=1.15;
+    //     }
+    //     else if(Character==="XWL"){
+    //         Aerial_Crit *=1.15;
+    //     }
     let Percent_Phys_Atk = (Phys_Atk-Phys_Atk2)/1000;
     let Percent_Magic_Atk = (Magic_Atk-Magic_Atk2)/1000;
     let Base_Phys_Atk = (Phys_Atk-Weapon_Base_Atk)/Percent_Phys_Atk;
@@ -154,6 +154,8 @@ function Calculate(){
     let total_Phys_Crit_Ratio = (10/(total_Phys_Crit+100))*100;
     let total_Magic_Crit_Ratio = (10/(total_Magic_Crit+100))*100;
     let total_Dmg_Ratio = (10/(total_Dmg+100))*100;
+    let Phy_Stats_1Eskill = (10000000000/Phys_Atk).toFixed(2)
+    let Magic_Stats_1Eskill = (10000000000/Magic_Atk).toFixed(2)
 
 
     document.getElementById("Base_Phys_Atk").innerHTML = "基礎物理攻擊:" + (Base_Phys_Atk).toFixed(2);
@@ -170,6 +172,9 @@ function Calculate(){
     document.getElementById("total_Phys_Crit_Ratio").innerHTML = "10%物理暴傷提升:" + (total_Phys_Crit_Ratio).toFixed(4) + "%";
     document.getElementById("total_Magic_Crit_Ratio").innerHTML = "10%魔法暴傷提升:" + (total_Magic_Crit_Ratio).toFixed(4) + "%";
     document.getElementById("total_Dmg_Ratio").innerHTML = "10%增傷提升:" + (total_Dmg_Ratio).toFixed(4) + "%";
+    document.getElementById("Phy_Stats_1Eskill").innerHTML = "1E物理能力值等效技能倍率: " + Phy_Stats_1Eskill + "%";
+    document.getElementById("Magic_Stats_1Eskill").innerHTML = "1E魔法能力值等效倍率: " + Magic_Stats_1Eskill + "%";
+
 }
 function Clear_Input(){
     Default_Value();
@@ -264,6 +269,8 @@ function Default_Value(){
     document.getElementById("Chase_Dmg").value = 0;
     document.getElementById("Race_Dmg").value = 0;
     document.getElementById("Crit_Resist").value = 0;
-    Weapon.value = "non_value_weapon";
-    Upgrade.value = "non_up_weapon";
+    // Change_Character();
+    document.getElementById("choose_weapon").value = "non_value_weapon";
+    document.getElementById("choose_weapon").Upgrade = "non_up_weapon";
+    Change_weapon();
 }
