@@ -1,3 +1,8 @@
+window.addEventListener("DOMContentLoaded", function() {
+
+    Default_Value();
+
+});
 function Change_Character(){
 
     let Select =
@@ -139,4 +144,25 @@ function Start(){
     document.getElementById("total_Phys_Crit_Ratio").innerHTML = "10%物理暴傷提升:" + (total_Phys_Crit_Ratio).toFixed(4) + "%";
     document.getElementById("total_Magic_Crit_Ratio").innerHTML = "10%魔法暴傷提升:" + (total_Magic_Crit_Ratio).toFixed(4) + "%";
     document.getElementById("total_Dmg_Ratio").innerHTML = "10%增傷提升:" + (total_Dmg_Ratio).toFixed(4) + "%";
+}
+ function Clear_Input(){
+    Default_Value();
+}
+function Default_Value(){
+    document.getElementById("Phys_Atk").value = 0;
+    document.getElementById("Phys_Atk2").value = 0;
+    document.getElementById("Magic_Atk").value = 0;
+    document.getElementById("Magic_Atk2").value = 0;
+    document.getElementById("Weapon_Base_Atk").value = 0;
+    document.getElementById("Phys_Crit").value = 0;
+    document.getElementById("Magic_Crit").value = 0;
+    document.getElementById("Aerial_Crit").value = 0;
+    document.getElementById("Back_Crit").value = 0;
+    document.getElementById("Chase_Crit").value = 0;
+    document.getElementById("Wake_Dmg").value = 0;
+    document.getElementById("Aerial_Dmg").value = 0;
+    document.getElementById("Back_Dmg").value = 0;
+    document.getElementById("Chase_Dmg").value = 0;
+    document.getElementById("Race_Dmg").value = 0;
+    document.getElementById("Crit_Resist").value = 0;
 }

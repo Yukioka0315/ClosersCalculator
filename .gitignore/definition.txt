@@ -1,0 +1,46 @@
+角色:
+PSP
+LSF=雪菲
+XWL=大姊
+J
+MST=小米
+EZR
+LVA
+NT
+HB
+VIO
+TN
+VR
+LN
+SM
+BAI
+ST
+MOA
+MIRAI
+YSY=金徹斯
+GINGA
+LC
+AERI=愛里
+數值:
+Phys_Atk 物理攻擊
+Phys_Atk2 、、(-1000)
+Magic_atk 魔法攻擊
+Magic_atk2 、、(-1000)
+Phys_Crit 物暴
+Magic_Crit 法暴
+Aerial_Crit 空暴
+Back_Crit 背暴
+Chase_Crit 浮暴
+Wake_Dmg 超暴增
+Aerial_Dmg 空增
+Back_Dmg 背增
+Chase_Dmg 浮增
+Race_Dmg 種族增
+JS名稱:
+Percent_Phys_Atk 總物
+Percent_Magic_Atk 總魔 
+Base_Phys_Atk 基礎物
+Base_Magic_Atk     基礎魔
+total_Phys_Crit     總物暴
+total_Magic_Crit      總法暴
+total_Dmg 總增

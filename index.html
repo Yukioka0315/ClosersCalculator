@@ -7,13 +7,14 @@ rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>封印者機體計算器</title>
     <link rel="stylesheet" href="style.css">
-    <script src="JavaScript.js"></script>
+    <script src="JavaScript.js" defer></script>
 </head>
 <body>
     <h1>封印者機體計算器</h1>    
     <div class="container">
         <label class="Character_SL">選擇角色:</label>
         <select class="form-select" id="Character_Select" onchange="Change_Character()">
+            <option value="" selected disabled>請選擇角色</option>
             <option value="PSP" data-type="physical">李世河</option>
             <option value="LSF" data-type="magic">李雪菲</option>
             <option value="XWL" data-type="hybrid">徐維莉</option>
@@ -82,7 +83,7 @@ rel="stylesheet">
             <label class="form-label">種族增傷:</label>
             <input class="form-control" type="number" id="Race_Dmg" placeholder="輸入種族增傷">
         </div>
-        <button class="btn btn-primary" id="Calculate_Button" onclick="clear()">清除</button>
+        <button class="btn btn-primary" id="Calculate_Button" onclick="Clear_Input()">清除</button>
         <button class="btn btn-success" onclick="Start()">開始</button>
     </div>
     <div class="card">
