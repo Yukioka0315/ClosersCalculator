@@ -43,3 +43,11 @@ select{
 .Character_SL{
     font-weight: bold;
 }
+.checkbox-group {
+    display: flex;
+    gap: 20px;
+}
+
+.button-group {
+    margin-top: 20px;
+}

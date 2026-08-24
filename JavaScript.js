@@ -89,6 +89,32 @@ function Change_Character(){
 
 }
 function Start(){
+
+    let Default_Buff =
+        document.getElementById("Default_dungeon_checkbox").checked;
+
+    if(Default_Buff){
+
+        // 有勾選預設 Buff
+        // 直接計算
+        Calculate();
+
+    }
+    else{
+
+        // 沒有勾選
+        // 打開 Buff 選擇視窗
+        let modal =
+            new bootstrap.Modal(
+                document.getElementById("BuffModal")
+            );
+
+        modal.show();
+
+    }
+
+}
+function Calculate(){
     let Phys_Atk = Number(document.getElementById("Phys_Atk").value);
     let Phys_Atk2 = Number(document.getElementById("Phys_Atk2").value);
     let Magic_Atk = Number(document.getElementById("Magic_Atk").value);
@@ -145,7 +171,7 @@ function Start(){
     document.getElementById("total_Magic_Crit_Ratio").innerHTML = "10%魔法暴傷提升:" + (total_Magic_Crit_Ratio).toFixed(4) + "%";
     document.getElementById("total_Dmg_Ratio").innerHTML = "10%增傷提升:" + (total_Dmg_Ratio).toFixed(4) + "%";
 }
- function Clear_Input(){
+function Clear_Input(){
     Default_Value();
 }
 function Default_Value(){
@@ -165,4 +191,77 @@ function Default_Value(){
     document.getElementById("Chase_Dmg").value = 0;
     document.getElementById("Race_Dmg").value = 0;
     document.getElementById("Crit_Resist").value = 0;
+}
+
+function Change_weapon(){
+
+    let Weapon = document.getElementById("choose_weapon");
+    let Weapon_Type = Weapon.options[Weapon.selectedIndex].dataset.type;
+    let Upgrade = document.getElementById("choose_weapon_upgrade");
+    let Upgrade_18 = Upgrade.querySelector('[data-upgrade="18"]');
+    let Upgrade_22 = Upgrade.querySelector('[data-upgrade="22"]');
+    let Whip_Box = document.getElementById("whip_layer_box");
+    // =========================
+    // 橘武器
+    // =========================
+
+    if(Weapon_Type === "Orange_weapon"){
+
+        Upgrade_18.style.display = "";
+
+        Upgrade_22.style.display = "none";
+
+        // 如果原本選的是 +22
+        // 自動改回 +18以下
+
+        if(Upgrade.value === "+22_weapon"){
+
+            Upgrade.value = "non_up_weapon";
+
+        }
+
+    }
+
+
+    // =========================
+    // 紅武器
+    // =========================
+
+    else if(Weapon_Type === "Red_weapon"){
+
+        Upgrade_18.style.display = "";
+
+        Upgrade_22.style.display = "";
+
+    }
+
+
+    // =========================
+    // 沒有特殊武器
+    // =========================
+
+    else{
+
+        Upgrade_18.style.display = "none";
+
+        Upgrade_22.style.display = "none";
+
+        Upgrade.value = "non_up_weapon";
+
+    }
+
+
+    // =========================
+    // 龍鞭
+    // =========================
+
+    let Weapon_Value = Weapon.value;
+
+    if(Weapon_Value === "O_Hecaton_A" || Weapon_Value === "R_Hecaton_A"){
+        Whip_Box.style.display = "";
+    }
+    else{
+        Whip_Box.style.display = "none";
+    }
+
 }
