@@ -114,6 +114,15 @@ window.addEventListener("DOMContentLoaded", function() {
     // }
 
 // }
+function Safe_Number(value, digits = 4){
+
+    if(!Number.isFinite(value)){
+        return (0).toFixed(digits);
+    }
+
+    return value.toFixed(digits);
+
+}
 function Calculate(){
     let Phys_Atk = Number(document.getElementById("Phys_Atk").value);
     let Phys_Atk2 = Number(document.getElementById("Phys_Atk2").value);
@@ -166,22 +175,22 @@ function Calculate(){
     let Magic_Stats_1Eskill = (10000000000/Magic_Atk).toFixed(2)
 
 
-    document.getElementById("Base_Phys_Atk").innerHTML = "基礎物理攻擊:" + (Base_Phys_Atk).toFixed(2);
-    document.getElementById("Percent_Phys_Atk").innerHTML = "總物理攻擊力:" + (Percent_Phys_Atk).toFixed(2);
-    document.getElementById("Base_Magic_Atk").innerHTML = "基礎魔法攻擊:" + (Base_Magic_Atk).toFixed(2);
-    document.getElementById("Percent_Magic_Atk").innerHTML = "總魔法攻擊力:" + (Percent_Magic_Atk).toFixed(2);
-    document.getElementById("Total_Phys_Crit").innerHTML = "物理暴傷:" + (total_Phys_Crit).toFixed(2);
-    document.getElementById("Total_Magic_Crit").innerHTML = "魔法暴傷:" + (total_Magic_Crit).toFixed(2);
-    document.getElementById("Total_Dmg").innerHTML = "總增傷:" + (total_Dmg).toFixed(2);
-    document.getElementById("Percent_Phys_Atk_Ratio").innerHTML = "1%總物理攻擊提升:" + (Percent_Phys_Atk_Ratio).toFixed(4) + "%";
-    document.getElementById("Percent_Magic_Atk_Ratio").innerHTML = "1%總魔法攻擊提升:" + (Percent_Magic_Atk_Ratio).toFixed(4) + "%";
-    document.getElementById("Base_Phys_Atk_Ratio").innerHTML = "100點基礎物理攻擊提升:" + (Base_Phys_Atk_Ratio).toFixed(4) + "%";
-    document.getElementById("Base_Magic_Atk_Ratio").innerHTML = "100點基礎魔法攻擊提升:" + (Base_Magic_Atk_Ratio).toFixed(4) + "%";
-    document.getElementById("total_Phys_Crit_Ratio").innerHTML = "10%物理暴傷提升:" + (total_Phys_Crit_Ratio).toFixed(4) + "%";
-    document.getElementById("total_Magic_Crit_Ratio").innerHTML = "10%魔法暴傷提升:" + (total_Magic_Crit_Ratio).toFixed(4) + "%";
-    document.getElementById("total_Dmg_Ratio").innerHTML = "10%增傷提升:" + (total_Dmg_Ratio).toFixed(4) + "%";
-    document.getElementById("Phy_Stats_1Eskill").innerHTML = "1E物理能力值等效技能倍率: " + Phy_Stats_1Eskill + "%";
-    document.getElementById("Magic_Stats_1Eskill").innerHTML = "1E魔法能力值等效倍率: " + Magic_Stats_1Eskill + "%";
+    document.getElementById("Base_Phys_Atk").innerHTML = "基礎物理攻擊:" + Safe_Number(Base_Phys_Atk,2);
+    document.getElementById("Percent_Phys_Atk").innerHTML = "總物理攻擊力:" + Safe_Number(Percent_Phys_Atk,2);
+    document.getElementById("Base_Magic_Atk").innerHTML = "基礎魔法攻擊:" + Safe_Number(Base_Magic_Atk,2);
+    document.getElementById("Percent_Magic_Atk").innerHTML = "總魔法攻擊力:" + Safe_Number(Percent_Magic_Atk,2);
+    document.getElementById("Total_Phys_Crit").innerHTML = "物理暴傷:" + Safe_Number(total_Phys_Crit,2);
+    document.getElementById("Total_Magic_Crit").innerHTML = "魔法暴傷:" + Safe_Number(total_Magic_Crit,2);
+    document.getElementById("Total_Dmg").innerHTML = "總增傷:" + Safe_Number(total_Dmg,2);
+    document.getElementById("Percent_Phys_Atk_Ratio").innerHTML = "1%總物理攻擊提升:" + Safe_Number(Percent_Phys_Atk_Ratio,4) + "%";
+    document.getElementById("Percent_Magic_Atk_Ratio").innerHTML = "1%總魔法攻擊提升:" + Safe_Number(Percent_Magic_Atk_Ratio,4) + "%";
+    document.getElementById("Base_Phys_Atk_Ratio").innerHTML = "100點基礎物理攻擊提升:" + Safe_Number(Base_Phys_Atk_Ratio,4) + "%";
+    document.getElementById("Base_Magic_Atk_Ratio").innerHTML = "100點基礎魔法攻擊提升:" + Safe_Number(Base_Magic_Atk_Ratio,4) + "%";
+    document.getElementById("total_Phys_Crit_Ratio").innerHTML = "10%物理暴傷提升:" + Safe_Number(total_Phys_Crit_Ratio,4) + "%";
+    document.getElementById("total_Magic_Crit_Ratio").innerHTML = "10%魔法暴傷提升:" + Safe_Number(total_Magic_Crit_Ratio,4) + "%";
+    document.getElementById("total_Dmg_Ratio").innerHTML = "10%增傷提升:" + Safe_Number(total_Dmg_Ratio,2) + "%";
+    document.getElementById("Phy_Stats_1Eskill").innerHTML = "1E物理能力值等效技能倍率: " + Safe_Number(Phy_Stats_1Eskill,2) + "%";
+    document.getElementById("Magic_Stats_1Eskill").innerHTML = "1E魔法能力值等效倍率: " + Safe_Number(Magic_Stats_1Eskill,2) + "%";
 
 }
 function Clear_Input(){
