@@ -146,6 +146,14 @@ function Calculate(){
     let total_Phys_Crit = Phys_Crit+Aerial_Crit+Back_Crit+Chase_Crit-Crit_Resist;
     let total_Magic_Crit = Magic_Crit+Aerial_Crit+Back_Crit+Chase_Crit-Crit_Resist;
     let total_Dmg = Wake_Dmg+Aerial_Dmg+Back_Dmg+Chase_Dmg+Race_Dmg;
+    let Weapon_Percent_Phys = Weapon_Base_Atk / Base_Phys_Atk ;
+    let Weapon_Percent_Magic = Weapon_Base_Atk / Base_Magic_Atk ;
+    let Weapon_Base_Phys = Weapon_Base_Atk / Percent_Phys_Atk;
+    let weapon_Base_Magic = Weapon_Base_Atk / Percent_Magic_Atk;
+    Percent_Phys_Atk +=Weapon_Percent_Phys;
+    Percent_Magic_Atk +=Weapon_Percent_Magic;
+    Base_Phys_Atk = Weapon_Base_Phys+Base_Phys_Atk;
+    Base_Magic_Atk = weapon_Base_Magic+Base_Magic_Atk;
     
     let Percent_Phys_Atk_Ratio = (0.01/(Percent_Phys_Atk+1))*100;
     let Percent_Magic_Atk_Ratio = (0.01/(Percent_Magic_Atk+1))*100;
